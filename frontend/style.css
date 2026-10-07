@@ -1,0 +1,370 @@
+/* ============================================================
+   MindPulse — stylesheet
+   Palette: pale sky background, white panels, muted teal-blue
+   primary, warm apricot secondary, traffic-light meter spectrum.
+   ============================================================ */
+
+:root{
+  --bg:            #F4F8FB;
+  --bg-soft:       #EAF3F8;
+  --panel:         #FFFFFF;
+  --panel-alt:     #F7FAFC;
+  --line:          #DCE6ED;
+  --line-soft:     #E9F0F5;
+
+  --ink:           #1E2A38;
+  --ink-soft:      #5B6B7A;
+  --ink-faint:     #8A99A6;
+
+  --primary:       #2E6F95;
+  --primary-dark:  #24576F;
+  --accent:        #F2994A;
+
+  --spectrum-calm: #6FCF97;
+  --spectrum-mid:  #F2C94C;
+  --spectrum-warm: #F2994A;
+  --spectrum-high: #EB5757;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-panel: 0 20px 45px -28px rgba(30,42,56,0.25);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 560px at 88% -8%, rgba(46,111,149,0.08), transparent 60%),
+    radial-gradient(900px 480px at -8% 108%, rgba(242,153,74,0.07), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2{ font-family: 'Playfair Display', serif; margin: 0; }
+
+/* ---------------- Header ---------------- */
+
+.site-header{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  flex-wrap:wrap;
+  padding: 28px clamp(20px, 5vw, 64px) 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-mark{ color: var(--primary); display:flex; }
+
+.brand-name{
+  font-family:'Playfair Display', serif;
+  font-size:1.35rem;
+  font-weight:600;
+  letter-spacing:0.01em;
+  color: var(--ink);
+}
+
+.brand-tag{
+  color: var(--ink-faint);
+  font-size:0.88rem;
+  margin:0;
+}
+
+/* ---------------- Layout ---------------- */
+
+.layout{
+  max-width: 1400px;
+  margin: 28px auto 0;
+  padding: 0 clamp(20px, 5vw, 64px) 40px;
+  display:grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 28px;
+  align-items:start;
+}
+
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ---------------- Form panel ---------------- */
+
+.form-panel{ padding: clamp(28px, 4vw, 44px); }
+
+.form-panel h1{
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 600;
+  line-height:1.25;
+  color: var(--ink);
+}
+
+.panel-sub{
+  color: var(--ink-soft);
+  margin: 10px 0 32px;
+  font-size: 0.98rem;
+}
+
+.group{ margin-bottom: 32px; }
+.group:last-of-type{ margin-bottom: 0; }
+
+.group-title{
+  font-family:'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.field-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 20px;
+}
+
+.field{ display:flex; flex-direction:column; }
+
+.field label{
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.field label .unit{ color: var(--ink-faint); font-weight: 400; }
+
+.field input,
+.field select{
+  font-family:'Manrope', sans-serif;
+  font-size: 0.96rem;
+  color: var(--ink);
+  background: var(--panel-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field select{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235B6B7A' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 30px;
+}
+
+.field input::placeholder{ color: var(--ink-faint); }
+
+.field input:focus,
+.field select:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46,111,149,0.14);
+  background: var(--panel);
+}
+
+.field input:invalid:not(:placeholder-shown){ border-color: var(--spectrum-high); }
+
+.submit-row{
+  margin-top: 36px;
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-submit{
+  font-family:'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  border-radius: 999px;
+  padding: 15px 32px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow: 0 12px 28px -12px rgba(46,111,149,0.55);
+}
+
+.btn-submit:hover{ transform: translateY(-1px); box-shadow: 0 16px 32px -12px rgba(46,111,149,0.6); }
+.btn-submit:active{ transform: translateY(0); }
+.btn-submit:disabled{ opacity:0.6; cursor:default; transform:none; box-shadow:none; }
+
+.form-error{
+  color: var(--spectrum-high);
+  font-size: 0.88rem;
+  display:none;
+}
+.form-error.show{ display:inline-block; }
+
+/* ---------------- Meter panel ---------------- */
+
+.meter-panel{
+  position: sticky;
+  top: 28px;
+  padding: clamp(28px, 4vw, 40px);
+  background:
+    radial-gradient(600px 260px at 50% 0%, rgba(46,111,149,0.06), transparent 65%),
+    var(--panel);
+  display:flex;
+  flex-direction:column;
+  min-height: 560px;
+}
+
+.meter-inner{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.meter-heading{
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.meter-state{ display:none; width:100%; }
+.meter-state.is-active{ display:flex; flex-direction:column; align-items:center; }
+
+.meter-placeholder{ opacity:0.9; margin-bottom: 20px; }
+
+.meter-idle-text{
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 32ch;
+  margin: 0 auto;
+}
+
+.pulse-dot{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  margin-bottom: 18px;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%, 100%{ transform: scale(0.85); opacity: 0.6; }
+  50%{ transform: scale(1.15); opacity: 1; }
+}
+
+.meter-state--loading p{ color: var(--ink-soft); }
+
+.gauge-wrap{
+  position: relative;
+  display:flex;
+  justify-content:center;
+  margin-bottom: 8px;
+}
+
+.gauge-number-wrap{
+  position:absolute;
+  bottom: 6px;
+  left:0; right:0;
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:6px;
+}
+
+.gauge-number{
+  font-family:'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height:1;
+  color: var(--ink);
+}
+
+.gauge-scale{ color: var(--ink-faint); font-size: 0.95rem; }
+
+.band-label{
+  font-family:'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 12px 0 6px;
+  color: var(--primary-dark);
+}
+
+.poetic-line{
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 34ch;
+  margin: 0 auto 24px;
+}
+
+.btn-reset{
+  font-family:'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.btn-reset:hover{ border-color: var(--primary); background: var(--bg-soft); }
+
+.disclaimer{
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--line-soft);
+  padding-top: 16px;
+  margin: 24px 0 0;
+  text-align:center;
+}
+
+/* ---------------- Footer ---------------- */
+
+.site-footer{
+  text-align:center;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  padding: 12px 20px 40px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 980px){
+  .layout{ grid-template-columns: 1fr; }
+  .meter-panel{ position: static; min-height: auto; order: -1; }
+}
+
+@media (max-width: 620px){
+  .field-grid{ grid-template-columns: 1fr; }
+  .site-header{ flex-direction:column; gap:4px; }
+  .gauge-wrap svg{ width: 200px; }
+  .gauge-number{ font-size: 2.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

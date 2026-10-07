@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MindPulse — Mental Health Score Check-in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="26" height="26">
+        <path d="M16 3c6 4 12 9 12 16a12 12 0 0 1-24 0C4 12 10 7 16 3Z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+        <path d="M11 17c1.5 3 3.5 4.5 5 4.5s3.5-1.5 5-4.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="brand-name">MindPulse</span>
+  </div>
+  <p class="brand-tag">a quiet check-in on your digital habits</p>
+</header>
+
+<main class="layout">
+
+  <!-- LEFT: FORM -->
+  <section class="panel form-panel" aria-labelledby="form-heading">
+    <h1 id="form-heading">Tell us about your day</h1>
+    <p class="panel-sub">Answer as honestly as you can — there's no wrong number here.</p>
+
+    <form id="checkinForm" novalidate>
+
+      <div class="group">
+        <h2 class="group-title">About you</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="Age">Age</label>
+            <input type="number" id="Age" name="Age" min="6" max="24" placeholder="6–24" required>
+          </div>
+
+          <div class="field">
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender" required>
+              <option value="" disabled selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="Country">Country</label>
+            <select id="Country" name="Country" required>
+              <option value="" disabled selected>Select</option>
+              <option>USA</option>
+              <option>UK</option>
+              <option>Canada</option>
+              <option>India</option>
+              <option>Australia</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>Mexico</option>
+              <option>Turkey</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="Academic_Level">Academic level</label>
+            <select id="Academic_Level" name="Academic_Level" required>
+              <option value="" disabled selected>Select</option>
+              <option>High School</option>
+              <option>Undergraduate</option>
+              <option>Graduate</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2 class="group-title">Your platform</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="Most_Used_Platform">Most used platform</label>
+            <select id="Most_Used_Platform" name="Most_Used_Platform" required>
+              <option value="" disabled selected>Select</option>
+              <option>Instagram</option>
+              <option>Facebook</option>
+              <option>TikTok</option>
+              <option>YouTube</option>
+              <option>Twitter</option>
+              <option>Snapchat</option>
+              <option>WhatsApp</option>
+              <option>LinkedIn</option>
+              <option>LINE</option>
+              <option>KakaoTalk</option>
+              <option>VKontakte</option>
+              <option>WeChat</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="Purpose_Of_Use">Main purpose</label>
+            <select id="Purpose_Of_Use" name="Purpose_Of_Use" required>
+              <option value="" disabled selected>Select</option>
+              <option>Networking</option>
+              <option>Education</option>
+              <option>Entertainment</option>
+              <option>News</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="Avg_Daily_Usage_Hours">
+              Avg. daily usage <span class="unit">(hrs/day)</span>
+            </label>
+            <input type="number" id="Avg_Daily_Usage_Hours" name="Avg_Daily_Usage_Hours" min="0" max="20" step="1" placeholder="0–20" required>
+          </div>
+
+          <div class="field">
+            <label for="Daily_Unlocks">
+              Phone unlocks <span class="unit">(per day)</span>
+            </label>
+            <input type="number" id="Daily_Unlocks" name="Daily_Unlocks" min="1" max="299" step="1" placeholder="1–299" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <h2 class="group-title">Your day</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="Study_Hours">
+              Study hours <span class="unit">(per day)</span>
+            </label>
+            <input type="number" id="Study_Hours" name="Study_Hours" min="0.1" max="15.9" step="0.1" placeholder="0–16" required>
+          </div>
+
+          <div class="field">
+            <label for="Physical_Activity_Hours">
+              Physical activity <span class="unit">(hrs/day)</span>
+            </label>
+            <input type="number" id="Physical_Activity_Hours" name="Physical_Activity_Hours" min="0" max="19.9" step="0.1" placeholder="0–20" required>
+          </div>
+
+          <div class="field">
+            <label for="Sleep_Hours_Per_Night">
+              Sleep <span class="unit">(hrs/night)</span>
+            </label>
+            <input type="number" id="Sleep_Hours_Per_Night" name="Sleep_Hours_Per_Night" min="1.1" max="18.9" step="0.1" placeholder="1–19" required>
+          </div>
+
+          <div class="field">
+            <label for="Stress_Level">Self-rated stress</label>
+            <select id="Stress_Level" name="Stress_Level" required>
+              <option value="" disabled selected>Select</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Very High</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-label">Calculate my score</span>
+        </button>
+        <span class="form-error" id="formError" role="alert"></span>
+      </div>
+    </form>
+  </section>
+
+  <!-- RIGHT: METER -->
+  <aside class="panel meter-panel" aria-labelledby="meter-heading">
+    <div class="meter-inner">
+
+      <div class="meter-state meter-state--empty is-active" id="stateEmpty">
+        <h2 id="meter-heading" class="meter-heading">Mental Health Score</h2>
+        <div class="meter-placeholder" aria-hidden="true">
+          <svg viewBox="0 0 240 150" width="220">
+            <defs>
+              <linearGradient id="gradIdle" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#6FCF97"/>
+                <stop offset="1" stop-color="#EB5757"/>
+              </linearGradient>
+            </defs>
+            <path d="M20 130 A100 100 0 0 1 220 130" stroke="url(#gradIdle)" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <p class="meter-idle-text">Fill in the form, and your score will settle here — like a needle finding its rest.</p>
+      </div>
+
+      <div class="meter-state meter-state--loading" id="stateLoading">
+        <div class="pulse-dot"></div>
+        <p>Reading your day…</p>
+      </div>
+
+      <div class="meter-state meter-state--result" id="stateResult">
+        <h2 class="meter-heading">Mental Health Score</h2>
+
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 240 150" width="240">
+            <defs>
+              <linearGradient id="gradFull" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#6FCF97"/>
+                <stop offset="0.4" stop-color="#F2C94C"/>
+                <stop offset="0.7" stop-color="#F2994A"/>
+                <stop offset="1" stop-color="#EB5757"/>
+              </linearGradient>
+            </defs>
+            <path d="M20 130 A100 100 0 0 1 220 130" stroke="#E4EBF0" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <path id="gaugeArc" d="M20 130 A100 100 0 0 1 220 130" stroke="url(#gradFull)" stroke-width="16" fill="none" stroke-linecap="round"
+                  stroke-dasharray="314" stroke-dashoffset="314"/>
+          </svg>
+          <div class="gauge-number-wrap">
+            <span class="gauge-number" id="gaugeNumber">0.0</span>
+            <span class="gauge-scale">/ 10</span>
+          </div>
+        </div>
+
+        <p class="band-label" id="bandLabel">—</p>
+        <p class="poetic-line" id="poeticLine">—</p>
+
+        <button class="btn-reset" id="resetBtn" type="button">Take the check-in again</button>
+      </div>
+
+    </div>
+
+    <p class="disclaimer">
+      This score comes from a machine learning model trained on habit and lifestyle patterns.
+      It's a reflection, not a diagnosis — if things feel heavy, please talk to someone you trust or a professional.
+    </p>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <span>MindPulse · a small, honest mirror for your digital habits</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
