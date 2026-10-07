@@ -127,7 +127,7 @@ A production-ready API with a custom HTML/CSS/JS frontend for a modern UI.
 ---
 
 ## 🛠️ Project Structure
-
+```python
 student_mental_health/
 │
 ├── data/
@@ -157,14 +157,14 @@ student_mental_health/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
+```
 ---
 
 ## 🚀 How to Run
 
 1. Installation
 ```bash
-git clone https://github.com/yourusername/student-mental-health.git
+git clone https://github.com/majidalimajid561/student_mental_health
 cd student-mental-health
 
 python -m venv venv
