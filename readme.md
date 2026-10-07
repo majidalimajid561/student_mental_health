@@ -134,9 +134,7 @@ student_mental_health/
 │   └── student_social_media_mental_health.csv
 │
 ├── notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_preprocessing.ipynb
-│   └── 03_model_training.ipynb
+│   ├── student_mental_health.ipynb
 │
 ├── fastapi/
 │   ├── main.py
@@ -185,7 +183,7 @@ pip install -r requirements.txt
 ```bash
 cd fastapi
 uvicorn main:app --reload
-```
+``` 
 
 ## Author
 Majid Mehmood
